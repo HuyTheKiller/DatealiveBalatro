@@ -66,10 +66,9 @@ function SMODS.INIT.datealive()
             loc = {
                 name = "Yatogami Toka",
         text = {
-            "All scored",
-            "{C:attention}10-point{} cards",
-            "will {C:attention}Retrigger{}",
-            "and give {C:mult}+10{} mult"
+            "{C:attention}Retrigger{} and give",
+            "{C:mult}+10{} Mult for",
+            "each scored {C:attention}10"
         }
             },
             ability_name = "shixiang",
@@ -121,10 +120,9 @@ function SMODS.INIT.datealive()
             loc = {
                 name = "Izayoi Miku",
         text = {
-            "All scored",
-            "{C:attention}9-point{} cards",
-            "will {C:attention}Retrigger{}",
-            "and give {C:chips}+99{} chips"
+            "{C:attention}Retrigger{} and give",
+            "{C:chips}+99{} chips for",
+            "each scored {C:attention}9{}"
         }
             },
             ability_name = "meijiu",
@@ -175,10 +173,9 @@ function SMODS.INIT.datealive()
             loc = {
                 name = "Yamai Kaguya",
         text = {
-            "All scored",
-            "{C:attention}8-point{} cards",
-            "will {C:attention}Retrigger{}",
-            "and enhanced to {C:attention}Lucky cards{}"
+            "{C:attention}Retrigger{} and enhance",
+            "each scored {C:attention}8{} to",
+            "{C:attention}Lucky{} card"
         }
             },
             ability_name = "yejushi",
@@ -225,10 +222,9 @@ function SMODS.INIT.datealive()
             loc = {
                 name = "Yamai Yuzuru",
         text = {
-            "All scored",
-            "{C:attention}8-point{} cards",
-            "will {C:attention}Retrigger{}",
-            "and enhanced to {C:attention}steel cards{}"
+            "{C:attention}Retrigger{} and enhance",
+            "each scored {C:attention}8{} to",
+            "{C:attention}Steel{} card"
         }
             },
             ability_name = "xixian",
@@ -275,10 +271,8 @@ function SMODS.INIT.datealive()
             loc = {
                 name = "Kyono Natsumi",
         text = {
-            "All scored",
-            "{C:attention}7-point{} cards",
-            "will {C:attention}Retrigger{}",
-            "and give {C:money}$7{}"
+            "{C:attention}Retrigger{} and earn {C:money}$7",
+            "for each scored {C:attention}7"
         }
             },
             ability_name = "qizui",
@@ -325,11 +319,10 @@ function SMODS.INIT.datealive()
             loc = {
                 name = "Hoshimiya Mukuro",
         text = {
-            "All scored",
-            "{C:attention}6-point{} cards",
-            "will {C:attention}Retrigger{}",
-            "and have {C:green}#1# in #2#{} chance to upgrade",
-            "the level of played {C:attention}poker hand{}"
+            "{C:attention}Retrigger{} each scored {C:attention}6",
+            "Every trigger has {C:green}#1# in #2#",
+            "chance to upgrade level",
+            "of played {C:attention}poker hand{}"
         }
             },
             ability_name = "liucan",
@@ -378,10 +371,9 @@ function SMODS.INIT.datealive()
             loc = {
                 name = "Itsuka Kotori",
         text = {
-            "All scored",
-            "{C:attention}5-point{} cards",
-            "will {C:attention}Retrigger{}",
-            "and give {C:red}+1 discard{} temporarily"
+            "{C:attention}Retrigger{} and give",
+            "{C:red}+1{} discard for",
+            "each scored {C:attention}5",
         }
             },
             ability_name = "qinli",
@@ -428,10 +420,8 @@ function SMODS.INIT.datealive()
             loc = {
                 name = "Himekawa Yoshino",
         text = {
-            "All scored",
-            "{C:attention}4-point{} cards",
-            "will {C:attention}Retrigger{}",
-            "{C:attention}4{} extra times"
+            "{C:attention}Retrigger{} each scored {C:attention}4",
+            "{C:attention}4{} additional times"
         }
             },
             ability_name = "sixinai",
@@ -473,11 +463,9 @@ function SMODS.INIT.datealive()
             loc = {
                 name = "Tokisaki Kurumi",
         text = {
-            "All scored",
-            "{C:attention}3-point{} cards",
-            "will {C:attention}Retrigger{}",
-            "and have {C:green}1 in #2#{} fixed chance",
-            "to reduce {C:attention}ante{}"
+            "{C:attention}Retrigger{} each scored {C:attention}3",
+            "Every trigger has {C:green}1 in #2#{}",
+            "fixed chance to reduce {C:attention}ante{}"
         }
             },
             ability_name = "kuangsan",
@@ -528,11 +516,9 @@ function SMODS.INIT.datealive()
             loc = {
                 name = "Honjo Nia",
         text = {
-            "All scored",
-            "{C:attention}2-point{} cards",
-            "will {C:attention}Retrigger{}",
-            "and have {C:green}1 in #3#{} fixed chance",
-            "to give {X:mult,C:white} X2 {} mult"
+            "{C:attention}Retrigger{} each scored {C:attention}2",
+            "Every trigger has {C:green}1 in #3#{}",
+            "fixed chance to give {X:mult,C:white} X2 {} Mult"
         }
             },
             ability_name = "erya",
@@ -586,11 +572,9 @@ function SMODS.INIT.datealive()
             loc = {
                 name = "Tobiichi Origami",
         text = {
-            "All scored",
-            "{C:attention}A{} cards",
-            "will {C:attention}Retrigger{}",
-            "and make all the {C:attention}A{} in your deck",
-            "gain {C:chips}+11{} chips"
+            "{C:attention}Retrigger{} each scored {C:attention}Ace",
+            "All {C:attention}Aces{} permanently gain",
+            "{C:chips}+11{} chips for every trigger"
         }
             },
             ability_name = "zhezhi",
@@ -642,11 +626,10 @@ function SMODS.INIT.datealive()
             loc = {
                 name = "Mayuri",
         text = {
-            "All scored",
-            "{C:attention}wild{} cards",
-            "will {C:attention}Retrigger{}",
-            "and create a {C:tarot}tarot{} card",
-            "{C:inactive}(Must have room){}",
+            "{C:attention}Retrigger{} and create",
+            "a {C:tarot}tarot{} card for each",
+            "scored {C:attention}Wild{} card",
+            "{C:inactive}(Must have room){}"
         }
             },
             ability_name = "wanyouli",
@@ -707,9 +690,8 @@ function SMODS.INIT.datealive()
             loc = {
                 name = "Deus",
         text = {
-            "Retrigger {C:attention}number{} Cards",
-            "that are played or",
-            "held in hand",
+            "Retrigger all {C:attention}numbered{} cards",
+            "scored or held in hand",
         }
             },
             ability_name = "chonggongling",
