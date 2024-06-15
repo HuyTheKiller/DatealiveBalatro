@@ -3,7 +3,7 @@
 --- MOD_ID: datealive
 --- MOD_AUTHOR: [sishui]
 --- MOD_DESCRIPTION: jokers from datealive
---- BADGE_COLOUR: B26CBB
+--- BADGE_COLOUR: CC99FF
 
 ----------------------------------------------
 ------------MOD CODE -------------------------
@@ -22,6 +22,8 @@ local config = {
     j_zhezhi = true,
     j_wanyouli = true,
     j_chonggongling = true,
+    j_darkshixiang = true,
+    j_whitekuangsan = true,
 }
 local function init_joker(joker, no_sprite)
     no_sprite = no_sprite or false
@@ -698,7 +700,6 @@ function SMODS.INIT.datealive()
             slug = "chonggongling",
             ability = {
                 extra = {
-                    loop_amount = 1,
                 },
             },
             pos = { x = 4, y = 1 },
@@ -714,7 +715,7 @@ function SMODS.INIT.datealive()
         init_joker(chonggongling)
         -- Set local variables
         function SMODS.Jokers.j_chonggongling.loc_def(card)
-            return { card.ability.extra.loop_amount }
+            return {}
         end
         -- Calculate
         SMODS.Jokers.j_chonggongling.calculate = function(self, context)
@@ -738,4 +739,120 @@ function SMODS.INIT.datealive()
             end
         end
     end
+
+    -- white3
+    if config.j_whitekuangsan then
+        local whitekuangsan = {
+            loc = {
+                name = "Tokisaki Kurumi(Inverse)",
+        text = {
+            "{C:attention}Retrigger{} each scored {C:attention}3{}",
+            "Every trigger has {C:green}1 in #2#{}",
+            "fixed chance to increase {C:attention}ante{}",
+            "and gain {C:attention}3{} joker slots"
+        }
+            },
+            ability_name = "whitekuangsan",
+            slug = "whitekuangsan",
+            ability = {
+                extra = {odds=33
+                },
+            },
+            pos = { x = 6, y = 1 },
+            rarity = 3,
+            cost = 8,
+            unlocked = true,
+            discovered = true,
+            blueprint_compat = true,
+            eternal_compat = true,
+        }
+        -- Initialize Joker
+        init_joker(whitekuangsan)
+        -- Set local variables
+        function SMODS.Jokers.j_whitekuangsan.loc_def(card)
+            return {''..(G.GAME and G.GAME.probabilities.normal or 1), card.ability.extra.odds}
+        end
+        -- Calculate
+        SMODS.Jokers.j_whitekuangsan.calculate = function(card, context)
+            if context.individual and context.cardarea == G.play and
+            context.other_card:get_id() == 3 then
+                if pseudorandom('whitekuangsan') < 1/card.ability.extra.odds then
+                    ease_ante(1)
+            G.GAME.round_resets.blind_ante = G.GAME.round_resets.blind_ante or G.GAME.round_resets.ante
+            G.GAME.round_resets.blind_ante = G.GAME.round_resets.blind_ante+1
+            G.jokers.config.card_limit = G.jokers.config.card_limit + 3
+                end
+            end
+
+            if context.repetition and context.cardarea == G.play and
+            context.other_card:get_id() == 3 then
+				return {
+					message = localize('k_again_ex'),
+					repetitions = 1,
+					card = card
+				}
+			end
+        end
+    end
+
+    -- dark10
+    if config.j_darkshixiang then
+        local darkshixiang = {
+            loc = {
+                name = "Yatogami Tenka(Inverse)",
+        text = {
+            "{C:attention}Retrigger{} each scored {C:attention}10{}, give",
+            "{C:mult}+10{} Mult for each scored {C:attention}10",
+            "or {C:spades}Spade{} card held in hand"
+        }
+            },
+            ability_name = "darkshixiang",
+            slug = "darkshixiang",
+            ability = {
+                extra = {
+                    mult = 10,
+                },
+            },
+            pos = { x = 5, y = 1 },
+            rarity = 3,
+            cost = 8,
+            unlocked = true,
+            discovered = true,
+            blueprint_compat = true,
+            eternal_compat = true,
+        }
+        -- Initialize Joker
+        init_joker(darkshixiang)
+        -- Set local variables
+        function SMODS.Jokers.j_darkshixiang.loc_def(card)
+            return {card.ability.extra.mult}
+        end
+        -- Calculate
+        SMODS.Jokers.j_darkshixiang.calculate = function(card, context)
+            if context.individual and context.cardarea == G.play and
+            context.other_card:get_id() == 10 then
+                return {
+                    mult = card.ability.extra.mult,
+				    card = card
+                }
+            end
+            if context.repetition and context.cardarea == G.play and
+            context.other_card:get_id() == 10 then
+				return {
+					message = localize('k_again_ex'),
+					repetitions = 1,
+					card = card
+				}
+			end
+            if context.cardarea == G.hand and context.individual and not context.end_of_round then
+                if context.other_card:is_suit('Spades') and not context.other_card.debuff then
+                    return {
+                        h_mult = card.ability.extra.mult,
+                        card = card
+                    }
+                end
+            end
+        end
+    end
+
 end
