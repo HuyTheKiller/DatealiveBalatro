@@ -3,6 +3,4 @@
 
 - Adds 15 Jokers from anmie DATE A LIVE
 - Each joker can retrigger different numbered cards and provides powerful extra ability
-
-
-    Thanks for descriptions improved by [HuyTheKiller](https://github.com/HuyTheKiller)
+- Plan to design more jokers based on inverse spirits in the future
